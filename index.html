@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My First Website • #ShareMyProject</title>
+    
+    <!-- External CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#" class="logo">Micko<span>Byte</span></a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#journey">Journey</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="badge">
+            🎉 My First GitHub Project
+        </div>
+        <h1>Hello, I'm <span class="highlight">Micko Amolo</span></h1>
+        <p>Just completed my first GitHub commit and published my very first website! Built as part of the #ShareMyProject challenge.</p>
+        <a href="https://github.com/mickobyte" target="_blank" class="cta-button">
+            ⭐ View on GitHub
+        </a>
+    </section>
+
+    <section class="section" id="about">
+        <h2>About Me</h2>
+        <div class="card-grid">
+            <div class="card">
+                <h3>👋 Who am I?</h3>
+                <p>I'm a beginner developer on a journey to learn coding. This is my very first public website — created entirely in HTML & CSS as part of the Intro to Coding certificate challenge.</p>
+            </div>
+            <div class="card">
+                <h3>🚀 What I Learned</h3>
+                <ul style="margin-top: 1rem; line-height: 1.8;">
+                    <li>✅ How to create a GitHub repository</li>
+                    <li>✅ Making my first commit</li>
+                    <li>✅ Hosting a static website</li>
+                    <li>✅ Basic HTML & CSS</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="projects">
+        <h2>My Projects</h2>
+        <div class="card-grid">
+            <div class="card">
+                <h3>🌐 My First Website</h3>
+                <p>This very page you're looking at! A simple, clean personal website built from scratch.</p>
+                <p style="margin-top: 1rem; font-size: 0.9rem; color: #64748b;">Status: <strong style="color: #22c55e;">LIVE</strong></p>
+            </div>
+            <div class="card">
+                <h3>📱 Coming Soon</h3>
+                <p>More projects will be added as I continue my coding journey.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="journey">
+        <h2>My Coding Journey</h2>
+        <div class="journey-card">
+            <p style="font-size: 1.1rem; color: #e2e8f0;">
+                This website marks the beginning of my public coding journey. 
+                I followed the <strong>#ShareMyProject</strong> steps on Goodwall and successfully made my first commit!
+            </p>
+            <div class="reward-box">
+                <strong>Reward Unlocked:</strong> $5+ progress toward Intro to Coding certificate 🏆
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>Made with ❤️ for the <strong>#ShareMyProject</strong> challenge</p>
+        <a href="https://github.com/mickobyte" target="_blank" class="github-link">
+            👉 Check out my GitHub repo
+        </a>
+        <p style="margin-top: 2rem; font-size: 0.9rem;">© 2026 Micko Amolo • My First Website</p>
+    </footer>
+
+    <script>
+        // Simple smooth scrolling for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if (this.getAttribute('href') !== '#') {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Confetti for fun
+        function launchConfetti() {
+            const colors = ['#0ea5e9', '#22c55e', '#eab308'];
+            for (let i = 0; i < 80; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.style.position = 'fixed';
+                    confetti.style.left = Math.random() * 100 + 'vw';
+                    confetti.style.top = '-10px';
+                    confetti.style.width = '10px';
+                    confetti.style.height = '10px';
+                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.opacity = Math.random() * 0.8 + 0.4;
+                    confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+                    document.body.appendChild(confetti);
+                    
+                    const fallDuration = Math.random() * 3 + 2;
+                    confetti.animate([
+                        { transform: `translateY(0) rotate(0deg)`, opacity: 1 },
+                        { transform: `translateY(${window.innerHeight + 100}px) rotate(${Math.random() * 800 - 400}deg)`, opacity: 0 }
+                    ], {
+                        duration: fallDuration * 1000,
+                        easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+                    });
+                    
+                    setTimeout(() => confetti.remove(), fallDuration * 1000 + 100);
+                }, i * 12);
+            }
+        }
+        
+        // Launch confetti when page loads
+        window.onload = () => {
+            setTimeout(launchConfetti, 800);
+        };
+    </script>
+</body>
+</html>
